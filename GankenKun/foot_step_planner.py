@@ -12,6 +12,13 @@ class foot_step_planner():
     self.period = period
     self.width = width
 
+  def set_param(self, max_stride_x, max_stride_y, max_stride_th, period, width):
+    self.max_stride_x = max_stride_x
+    self.max_stride_y = max_stride_y
+    self.max_stride_th = max_stride_th
+    self.period = period
+    self.width = width
+
   def calculate(self, goal_x, goal_y, goal_th, current_x, current_y, current_th, next_support_leg, status):
     # calculate the number of foot step
     time = 0.0
@@ -74,6 +81,8 @@ class foot_step_planner():
       foot_step += [[time, next_x, next_y, next_th, next_support_leg]]
 
     return foot_step
+
+    
 
 if __name__ == '__main__':
   planner = foot_step_planner(0.06, 0.04, 0.1, 0.34, 0.044)

@@ -7,6 +7,7 @@ import numpy as np
 from kinematics import *
 from foot_step_planner import *
 from preview_control import *
+from scikit_optimize import *
 from time import sleep
 import csv
 
@@ -27,6 +28,9 @@ class walking():
     self.next_leg = 'right'
     self.foot_step = []
     return
+
+  def set_fsp_param(self, max_stride_x, max_stride_y, max_stride_th, period, width):
+    self.fsp.set_param(max_stride_x, max_stride_y, max_stride_th, period, width)
 
   def setGoalPos(self, pos = None):
     if pos == None:
